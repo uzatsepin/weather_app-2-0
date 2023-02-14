@@ -1,5 +1,7 @@
 # weather-app-2.0
 
+### Test Task for a position Front-End Developer at Panda Team
+
 ## Project setup
 ```
 npm install
@@ -9,5 +11,3 @@ npm install
 ```
 npm run serve
 ```
-
-### Test Task for a position Front-End Developer at Panda Team
