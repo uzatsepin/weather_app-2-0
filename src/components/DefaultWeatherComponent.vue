@@ -77,7 +77,6 @@ export default {
     onCardDelete() {
       this.$store.commit("REMOVE_CARD", { cardId: this.cardId });
     },
-
     async onCitySelected(selectedCity) {
       this.isLoading = true;
       this.selectedCity = selectedCity;

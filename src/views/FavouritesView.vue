@@ -55,7 +55,8 @@ export default {
 
   async mounted() {
     this.coordinatesList = this.getCoorinatesList();
-
+    //i decided to store city coorinates in localStorage (not just weatherData city), because if you open
+    //favourites tab after few days, it will show you correct weather for current date
     this.coordinatesList?.forEach(async (coorinates) => {
       this.weatherData.push(
         (
