@@ -97,6 +97,7 @@ export default {
 
     onFavouriteClick() {
       if (this.GET_SAVED_CARDS_COUNT == this.GET_MAX_CARDS_COUNT) {
+        //Didn't have time to make it better but the best solution will be creating a modalwindow or toster message
         alert("Ви зберегли забагато міст. Видаліть щось. Максимум 5 міст.");
       }
       const coordinates = {
@@ -104,6 +105,7 @@ export default {
         longitude: this.selectedCity.longitude,
       };
       this.isFavourite = true;
+      //it's first idea that came to my mind but it's not the best way to store city coordinates in local storage.
       if (localStorage.getItem("citiesCoord") === null) {
         const tempArr = [];
         tempArr.push(coordinates);

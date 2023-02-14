@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import { createStore } from "vuex";
 
+//Wasn't able to refactor but it would be better to change the state using actions
 const store = createStore({
   state: {
     weatherCardsCount: 0,

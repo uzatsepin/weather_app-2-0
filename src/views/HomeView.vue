@@ -46,11 +46,13 @@ export default {
   methods: {
     addAnEmptyCard() {
       if (this.GET_CARDS_COUNT == this.GET_MAX_CARDS_COUNT) {
+        //Didn't have time to make it better but the best solution will be creating a modalwindow or toster message
         alert("Ви додали забагато міст. Видаліть щось. Максимум 5 міст.");
       }
       this.$store.commit("ADD_WEATHER_CARD", { weatherData: {} });
     },
   },
+  //it's better to use constants (not just hardcoded strings) in sepparate files – applicable for all aplication;
   computed: {
     ...mapGetters([
       "GET_WEATHER_CARDS",

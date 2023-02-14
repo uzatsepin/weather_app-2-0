@@ -8,6 +8,8 @@ function getWeatherForecastRequestString(cityId) {
   return `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${process.env.VUE_APP_WEATHER}&units=metric`;
 }
 
+//it will be great to move common logic to sepparate methods;
+
 export const getWeatherCardByIp = async () => {
   try {
     const ipResponse = await axios.get("https://ipapi.co/json/");
@@ -17,22 +19,25 @@ export const getWeatherCardByIp = async () => {
     const weatherForecastResponse = await axios.get(
       getWeatherForecastRequestString(weatherResponse.data.id)
     );
-    const date = new Date();
-    const currentDate = date.getUTCDate();
-    const timeTempObjectsArray = Array(
-      weatherForecastResponse.data.list
-    )[0].filter((x) => new Date(x.dt_txt).getUTCDate() === currentDate);
+    const timeTempObjectsArray = Array(weatherForecastResponse.data.list)[0];
     if (!timeTempObjectsArray.length) {
       throw new Error("No data for current day");
     }
-    const times = timeTempObjectsArray.map((x) => x.dt_txt).slice(0, 9);
+    // it API returns values starting from the current time (for example if i decide to split by current date, it's possible to have one or two dot's in graph,
+    // so i decided to show data for 5 days)
+    const times = timeTempObjectsArray.map((x) => x.dt_txt);
     const timeResult = times.map((time) => {
-      return time.split(" ")[1].split(":").slice(0, 2).join(":");
+      const date = time
+        .split(" ")[0]
+        .split("-")
+        .reverse()
+        .slice(0, 2)
+        .join(".");
+      const hours = time.split(" ")[1].split(":").slice(0, 2).join(":");
+      return `${date} ${hours}`;
     });
     weatherResponse.data.weatherTime = timeResult;
-    const tempResult = timeTempObjectsArray
-      .map((x) => Math.round(x.main.temp))
-      .slice(0, 9);
+    const tempResult = timeTempObjectsArray.map((x) => Math.round(x.main.temp));
     weatherResponse.data.weatherTemp = tempResult;
     return weatherResponse;
   } catch (error) {
@@ -49,14 +54,19 @@ export const getWeatherByCityFromInput = async (latitude, longitude) => {
       getWeatherForecastRequestString(weatherResponse.data.id)
     );
     const timeTempObjectsArray = Array(weatherForecastResponse.data.list)[0];
-    const times = timeTempObjectsArray.map((x) => x.dt_txt).slice(0, 9);
-    const timeResult = times.map((date) => {
-      return date.split(" ")[1].split(":").slice(0, 2).join(":");
+    const times = timeTempObjectsArray.map((x) => x.dt_txt);
+    const timeResult = times.map((time) => {
+      const date = time
+        .split(" ")[0]
+        .split("-")
+        .reverse()
+        .slice(0, 2)
+        .join(".");
+      const hours = time.split(" ")[1].split(":").slice(0, 2).join(":");
+      return `${date} ${hours}`;
     });
     weatherResponse.data.weatherTime = timeResult;
-    const tempResult = timeTempObjectsArray
-      .map((x) => Math.round(x.main.temp))
-      .slice(0, 9);
+    const tempResult = timeTempObjectsArray.map((x) => Math.round(x.main.temp));
     weatherResponse.data.weatherTemp = tempResult;
     return weatherResponse;
   } catch (error) {

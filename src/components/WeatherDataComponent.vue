@@ -1,6 +1,7 @@
 <template>
   <div class="weather__ip-card">
     <h3 class="weather__title">
+      <!-- for such kind of checks it's better to create sepparate methods or computed prop  -->
       {{ weatherData ? weatherData.name : null }},
 
       {{ weatherData && weatherData.sys ? weatherData.sys.country : null }}
@@ -100,9 +101,6 @@
 
 <script>
 import BarComponent from "./BarComponent.vue";
-// import { mapGetters } from "vuex";
-// import { getWeatherByCityFromInput } from "@/api/weatherAPI";
-
 export default {
   name: "WeatherComponent",
   components: { BarComponent },

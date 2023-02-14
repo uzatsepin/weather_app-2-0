@@ -29,6 +29,7 @@ export default {
   },
 
   methods: {
+    //it looks pretty weird but it's because i choosed not the best way to store city coordinates in localStorage firstly
     onFavouriteCardDeleted(payload) {
       let coordinatesList = this.getCoorinatesList();
       let coordinatesToDelete = {
@@ -42,6 +43,9 @@ export default {
       );
       localStorage.setItem("citiesCoord", JSON.stringify(this.coordinatesList));
       this.$store.commit("DELETE_SAVED_CARDS_COUNT");
+
+      //in this case it will remove all cities from gerenal tab,
+      // better would be just reload or re-render this component
       window.location.href = "favourites";
     },
     getCoorinatesList() {
