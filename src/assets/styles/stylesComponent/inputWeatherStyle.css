@@ -1,0 +1,104 @@
+.input-weather {
+  position: relative;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.input-weather__title {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.input-weather__input {
+  border: 1px solid #e5e7eb;
+  border-radius: 1.5rem;
+  width: 300px;
+  padding: 15px 10px 15px 15px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease-in-out;
+}
+
+.input-weather__input input:focus {
+  border: 1px solid #e5e7eb;
+}
+
+.input-weather-results {
+  padding: 20px;
+  margin: 0;
+  max-height: 250px;
+  height: fit-content;
+  overflow: auto;
+  width: 68%;
+  border-radius: 1.5rem;
+  border-top: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease-in-out;
+  list-style: none;
+}
+
+.input-weather__empty {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+.input-weather-result {
+  list-style: none;
+  text-align: left;
+  font-size: 18px;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1rem;
+}
+.input-weather-result button {
+  cursor: pointer;
+  background-color: #84b082;
+  border: 1px solid #84b082;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 5px 10px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.input-weather-result button:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
+  transform: translateY(-2px);
+  background-color: var(--btn-color);
+  border: 1px solid var(--btn-color);
+}
+
+.input-weather-result.is-active,
+.input-weather-result:hover {
+  background-color: var(--btn-color);
+  color: white;
+}
+
+@media (max-width: 390px) {
+  .input-weather {
+    width: 250px;
+    margin: 0 auto;
+  }
+  .input-weather__input {
+    width: 250px;
+    margin: 0 auto;
+  }
+  .input-weather-results {
+    width: 100%;
+  }
+}

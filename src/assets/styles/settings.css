@@ -1,0 +1,80 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.main {
+  padding: 30px;
+  color: var(--color-text);
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+.logo {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 28px;
+  margin: 50px auto;
+}
+.logo__text {
+  color: #023047;
+}
+.nav {
+  overflow: hidden;
+  margin-bottom: -2px;
+}
+.nav ul {
+  list-style-type: none;
+  margin-left: 20px;
+}
+.nav__link {
+  float: left;
+  cursor: pointer;
+  padding: 12px 24px;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid #e1e1e1;
+  border-right: none;
+  background-color: var(--btn-color);
+  border-radius: 0 0 0 0;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+.nav__link:last-child {
+  border-right: 1px solid #e1e1e1;
+}
+.nav__link:hover {
+  background-color: var(--btn-color-hover);
+  color: #fff;
+}
+.router-link-exact-active {
+  background-color: #fff;
+  color: #484848;
+  border-bottom: 2px solid #fff;
+  cursor: default;
+}

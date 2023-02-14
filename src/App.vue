@@ -1,30 +1,29 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div class="container">
+    <div class="logo">
+      <p class="logo__text">WeatherApp v2.0 ☀️</p>
+    </div>
+    <nav class="nav">
+      <router-link class="nav__link" to="/">Головна</router-link>
+      <router-link class="nav__link" to="/favourites"
+        >Обране <span></span
+      ></router-link>
+    </nav>
+    <main class="main">
+      <router-view />
+    </main>
+  </div>
 </template>
 
+<script>
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["GET_WEATHER_CART_BY_ID"]),
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+@import "./assets/styles/styles.css";
 </style>
