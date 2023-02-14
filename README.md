@@ -11,7 +11,3 @@ npm run serve
 ```
 
 ### Test Task for a position Front-End Developer at Panda Team
-```
-npm run build
-```
-
