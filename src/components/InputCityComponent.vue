@@ -5,6 +5,7 @@
       type="text"
       @input="updateMessage"
       v-model="inputValue"
+      placeholder="Enter town in English"
     />
     <ul
       v-if="isActive && inputValue.length > 0"
