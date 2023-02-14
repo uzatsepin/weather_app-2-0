@@ -53,11 +53,8 @@
 
 .weather__title {
   text-align: center;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .weather__it-card-wrapper {
